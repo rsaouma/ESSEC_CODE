@@ -727,12 +727,31 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
+   "cell_type": "markdown",
    "metadata": {},
-   "outputs": [],
    "source": [
-    "indexing could be also used to change the "
+    "indexing could be also used to change the value of an element in a list:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 149,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['axe', 'chair', 'table', 'book']"
+      ]
+     },
+     "execution_count": 149,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list_2[3]='book'\n",
+    "list_2"
    ]
   },
   {
@@ -950,7 +969,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Unlike a list, a tuple is a fixed length, immutable sequence of Python. Tuples are created by using the brackets __( )__ or the __tuple()__ function."
+    "Unlike a list, a tuple is a fixed length, ___immutable___ sequence of Python. Tuples are created by using the brackets __( )__ or the __tuple()__ function."
    ]
   },
   {
@@ -1073,12 +1092,19 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As such once a tuple is created you can not change any of its elements:"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
-    "As such one a tuple is created you can change it is elements:"
+    "tuple_3"
    ]
   }
  ],
