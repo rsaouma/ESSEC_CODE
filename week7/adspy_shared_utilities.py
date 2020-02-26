@@ -8,7 +8,7 @@ import matplotlib.cm as cm
 from matplotlib.colors import ListedColormap, BoundaryNorm
 from sklearn import neighbors
 import matplotlib.patches as mpatches
-#import graphviz
+import graphviz 
 from sklearn.tree import export_graphviz
 import matplotlib.patches as mpatches
 
@@ -27,21 +27,9 @@ def load_crime_dataset():
     return (X_crime, y_crime)
 
 def plot_decision_tree(clf, feature_names, class_names):
-    # This function requires the pydotplus module and assumes it's been installed.
-    # In some cases (typically under Windows) even after running conda install, there is a problem where the
-    # pydotplus module is not found when running from within the notebook environment.  The following code
-    # may help to guarantee the module is installed in the current notebook environment directory.
-    #
-    # import sys; sys.executable
-    # !{sys.executable} -m pip install pydotplus
 
-    export_graphviz(clf, out_file="adspy_temp.dot", feature_names=feature_names, class_names=class_names, filled = True, impurity = False)
-    with open("adspy_temp.dot") as f:
-        dot_graph = f.read()
-    # Alternate method using pydotplus, if installed.
-    # graph = pydotplus.graphviz.graph_from_dot_data(dot_graph)
-    # return graph.create_png()
-    return graphviz.Source(dot_graph)
+    return 5
+     
 
 def plot_feature_importances(clf, feature_names):
     c_features = len(feature_names)
@@ -49,30 +37,6 @@ def plot_feature_importances(clf, feature_names):
     plt.xlabel("Feature importance")
     plt.ylabel("Feature name")
     plt.yticks(numpy.arange(c_features), feature_names)
-
-def plot_labelled_scatter(X, y, class_labels):
-    num_labels = len(class_labels)
-
-    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
-    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
-
-    marker_array = ['o', '^', '*']
-    color_array = ['#FFFF00', '#00AAFF', '#000000', '#FF00AA']
-    cmap_bold = ListedColormap(color_array)
-    bnorm = BoundaryNorm(numpy.arange(0, num_labels + 1, 1), ncolors=num_labels)
-    plt.figure()
-
-    plt.scatter(X[:, 0], X[:, 1], s=65, c=y, cmap=cmap_bold, norm = bnorm, alpha = 0.40, edgecolor='black', lw = 1)
-
-    plt.xlim(x_min, x_max)
-    plt.ylim(y_min, y_max)
-
-    h = []
-    for c in range(0, num_labels):
-        h.append(mpatches.Patch(color=color_array[c], label=class_labels[c]))
-    plt.legend(handles=h)
-
-    plt.show()
 
 
 def plot_class_regions_for_classifier_subplot(clf, X, y, X_test, y_test, title, subplot, target_names = None, plot_decision_regions = True):
