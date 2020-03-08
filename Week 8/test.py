@@ -6,4 +6,7 @@ Created on Wed Jan  8 21:42:49 2020
 @author: ramzisaouma
 """
 
-x = "Hello World"
+x = "Hello Wrld"
+
+def test_func():
+    print("$$$$$")
